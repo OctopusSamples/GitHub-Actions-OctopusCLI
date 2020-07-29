@@ -23,11 +23,11 @@ jobs:
              sudo apt update && sudo apt install octopuscli
              
       - name: List Releases
-        run: octo list-deployments --project=${{ env.project }} --server=${{ env.server }} --apiKey=${{ secrets.APIKEY }} >> /tmp/deployments.txt
+        run: octo list-deployments --project=${{ env.project }} --server=${{ env.server }} --apiKey=${{ secrets.APIKEY }} >> /tmp/deployments/deployments.txt
 
       - name: Azure Storage Action
         uses: lauchacarro/Azure-Storage-Action@v1.1
         with:
           connection-string: DefaultEndpointsProtocol=https;AccountName=githubactionsdemo;AccountKey=S4W8j7QdSTT0cK/KVJ8XJF2kVlJUBasbKFiPd7BIlneYbhp/CVj+/Ki/PN4mwW2CZZLC5xWLIRbrygF+rHV5Uw==;EndpointSuffix=core.windows.net
-          folder: /tmp/deployments.txt
+          folder: /tmp/deployments
           blob-container-name: deployments
