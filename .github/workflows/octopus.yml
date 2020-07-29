@@ -1,5 +1,9 @@
 name: Octopus Project
 
+env:
+  project: DevTest
+  server: https://michaellevan.octopus.app
+
 on:
   push:
     branches: master
@@ -17,3 +21,6 @@ jobs:
              curl -sSfL https://apt.octopus.com/public.key | sudo apt-key add - &&
              sudo sh -c "echo deb https://apt.octopus.com/ stable main > /etc/apt/sources.list.d/octopus.com.list" &&
              sudo apt update && sudo apt install octopuscli
+             
+      - name: List Releases
+        run: octo list-deployments --project=${{ env.project }} --server=${{ env.server }} --apiKey=${{ secret.APIKEY }}
