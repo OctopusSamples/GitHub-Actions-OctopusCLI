@@ -24,3 +24,10 @@ jobs:
              
       - name: List Releases
         run: octo list-deployments --project=${{ env.project }} --server=${{ env.server }} --apiKey=${{ secrets.APIKEY }} >> /tmp/deployments.txt
+
+      - name: Azure Storage Action
+        uses: lauchacarro/Azure-Storage-Action@v1.1
+        with:
+          connection-string: DefaultEndpointsProtocol=https;AccountName=githubactionsdemo;AccountKey=S4W8j7QdSTT0cK/KVJ8XJF2kVlJUBasbKFiPd7BIlneYbhp/CVj+/Ki/PN4mwW2CZZLC5xWLIRbrygF+rHV5Uw==;EndpointSuffix=core.windows.net
+          folder: /tmp
+          blob-container-name: deployments
