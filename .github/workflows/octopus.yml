@@ -23,4 +23,4 @@ jobs:
              sudo apt update && sudo apt install octopuscli
              
       - name: List Releases
-        run: octo list-deployments --project=${{ env.project }} --server=${{ env.server }} --apiKey=${{ secrets.APIKEY }} >> /home/deployments.txt
+        run: octo list-deployments --project=${{ env.project }} --server=${{ env.server }} --apiKey=${{ secrets.APIKEY }} >> /tmp/deployments.txt
