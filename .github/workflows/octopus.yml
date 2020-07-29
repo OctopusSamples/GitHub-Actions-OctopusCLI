@@ -1,7 +1,9 @@
 name: Octopus Project
 
 on:
-  create:
+  push:
+    branches: master
+    
   schedule:
     - cron: '0 0 * * *'
     
