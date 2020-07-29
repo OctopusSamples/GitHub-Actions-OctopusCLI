@@ -1,6 +1,7 @@
 name: Octopus Project
 
 on:
+  create:
   schedule:
     - cron: '0 0 * * *'
     
