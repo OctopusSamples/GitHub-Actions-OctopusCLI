@@ -2,7 +2,7 @@ name: Octopus Project
 
 env:
   project: DevTest
-  server: https://michaellevan.octopus.app
+  server: https://mikelevanoctopus.octopus.app
 
 on:
   push:
